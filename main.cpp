@@ -2,6 +2,7 @@
 
 #include "common.h"
 #include "TicketManager.h"
+#include "StudentTicket.h"
 
 int main(int argc, char *argv[])
 {
