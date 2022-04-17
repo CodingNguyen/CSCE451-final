@@ -3,22 +3,34 @@
 class TicketManager
 {
 private:
-    // TicketReader *tReader; not defined yet
-    // StudentTicket *sTicket; not defined yet
-    // TicketPrinter *tPrinter; not defined yet
+    TicketReader *tReader; // not defined yet
+    StudentTicket *sTicket; // not defined yet
+    TicketPrinter *tPrinter; // not defined yet
     string parts;
     int id;
 
 public:
     TicketManager();
+    ~TicketManager();
 
-    void fPartSetup(string s);
     void fIdSetup(long ID);
-    bool readTicket();
-    bool openTicket();
-    bool showTicket();
-    bool getTicket();
-    // TicketReader* getReaderField(); Ticket reader not defined yet
+    void fPartSetup(string s);
+    int getfId();
+    string getfPart();
+    TicketPrinter getPrinterField();
+    TicketReader getReaderField();
 
-    void readAllTicketData(); // Might be in TicketReader actually / not defined yet
+    bool getTicket();
+    bool getTicket(int unkwnParam);
+    void getTicketField();
+
+    bool openTicket();
+    bool openTicket(int unkwnParam);
+    
+    void readAllTicketData();
+
+    bool readTicket();
+    bool readTicket(int unkwnParam);
+
+    void showTicket();
 };
