@@ -96,9 +96,9 @@ void StudentTicket::setEntranceYear(int i)
 }
 
 
-void TicketManager::setUnviersity(string universty)
+void StudentTicket::setUniversty(string Universty)
 {
-    this->universty = universty;
+    this->Universty = Universty;
 }
 
 string StudentTicket::getUniversty()
