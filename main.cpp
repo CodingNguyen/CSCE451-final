@@ -1,4 +1,8 @@
 //where is get barcode???
+
+#include "common.h"
+#include "TicketManager.h"
+
 class StudentTicket
 {
 private:
@@ -220,89 +224,14 @@ int StudentTicket::getEntranceYear()
 {
     return this.EntranceYear;
 }
-class TicketManager
-{
-public:
-    StudentTicket *sTicket;
-    TicketReader *tReader;
-    TicketPrinter *tPrinter;
-    TicketManager();
-    void fPartSetup(string s);
-    void fIdSetup(long ID);
-    int id;
-    string parts;
-    bool getTicket();
-};
-void TicketManager::TicketManager()
-{
-    this.sTicket = new StudentTicket;
-    this->tReader = new TicketReader;
-    this->tPrinter = new TicketPrinter;
-}
-
-//not cofident about this
-void TicketManager::fPartSetup(string s)
-{
-    this.parts = s;
-}
-//not confident about this
-void TicketManager::fIdSetup(long ID)
-{
-    this.id = ID;
-}
-bool TicketManager::getTicket()
-{
-    bool r = readticket();
-    if (r == true)
-    {
-        showticket();
-    }
-    return r;
-}
-bool TicketManager::readTicket()
-{
-    bool o = openTicket();
-    if (o == true)
-    {
-        ReadAllTicketData();
-    }
-    return o;
-}
-bool TicketManager::openTicket()
-{
-    FILE *fp;
-    char s[100];
-    sprintf(s, "./data/%u", this.id);
-    fp = freopen(s, "r", stdin);
-    if (fp == NULL)
-    {
-        puts("Ticket not found.");
-        return false;
-    }
-    return true;
-}
-void TicketManager::readAllTicketData()
-{
-    ////?????????????
-}
-
-bool TicketManager::showTicket()
-{
-    char c = readticket();
-    if (c == '\x01')
-    {
-        showticket();
-        return true;
-    }
-    return false;
-}
 
 int main(int argc, char *argv[])
 {
     bool badInput;
-    getPartFromCommandLine();
-    int id = getIdFromCommandLine();
-    if (id != 0)
+    // getPartFromCommandLine(); not defined yet
+    int ID = 0; // getIdFromCommandLine(); not defined yet
+    
+    if (ID != 0)
     {
         badInput = false;
     }
@@ -315,18 +244,19 @@ int main(int argc, char *argv[])
     {
         puts("usage: x Part Id");
     }
-    //good input detected
-    else
+    else // good input
     {
-        TicketManager t = new TicketManager();
-        t.fPartSetup();
-        t.fIdSetup();
-        bool gotTicket = t.getTicket();
-        if (gotTicket == false)
-        {
+        // TicketManager *t = new TicketManager();
 
-            delete t;
-        }
+        // t->fPartSetup("test");
+        // t->fIdSetup(ID);
+        // bool gotTicket = t->getTicket();
+
+        // if (gotTicket == false)
+        // {
+        //     delete t;
+        // }
     }
+    
     return 0;
 }
