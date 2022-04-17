@@ -1,33 +1,37 @@
-void TicketManager::ReadAllTicketData()
+#include "common.h"
+#include "TicketManager.h"
+
+// void TicketManager::ReadAllTicketData()
+// {
+//     return tReader;
+// }
+
+TicketManager::TicketManager()
 {
-    return tReader;
+    // other classes not defined yet
+    // this->sTicket = new StudentTicket;
+    // this->tReader = new TicketReader;
+    // this->tPrinter = new TicketPrinter;
 }
 
-void TicketManager::TicketManager()
-{
-    this.sTicket = new StudentTicket;
-    this->tReader = new TicketReader;
-    this->tPrinter = new TicketPrinter;
-}
-
-//not cofident about this
+// not cofident about this
 void TicketManager::fPartSetup(string s)
 {
-    this.parts = s;
+    this->parts = s;
 }
 
 //not confident about this
 void TicketManager::fIdSetup(long ID)
 {
-    this.id = ID;
+    this->id = ID;
 }
 
 bool TicketManager::getTicket()
 {
-    bool r = readticket();
+    bool r = readTicket();
     if (r == true)
     {
-        showticket();
+        showTicket();
     }
     return r;
 }
@@ -37,7 +41,7 @@ bool TicketManager::readTicket()
     bool o = openTicket();
     if (o == true)
     {
-        ReadAllTicketData();
+        readAllTicketData();
     }
     return o;
 }
@@ -54,10 +58,10 @@ void TicketManager::readAllTicketData()
 
 bool TicketManager::showTicket()
 {
-    char c = readticket();
+    char c = readTicket();
     if (c == '\x01')
     {
-        showticket();
+        showTicket();
         return true;
     }
     return false;

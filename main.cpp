@@ -1,13 +1,14 @@
 //where is get barcode???
+#include "common.h"
 #include "TicketManager.h"
 
 int main(int argc, char *argv[])
 {
     bool badInput;
-    getPartFromCommandLine();
-    int id = getIdFromCommandLine();
+    // getPartFromCommandLine(); not defined yet
+    int ID = 0; // getIdFromCommandLine(); not defined yet
     
-    if (id != 0)
+    if (ID != 0)
     {
         badInput = false;
     }
@@ -22,16 +23,17 @@ int main(int argc, char *argv[])
     }
     else // good input
     {
-        TicketManager t = new TicketManager();
+        // TicketManager *t = new TicketManager();
 
-        t.fPartSetup();
-        t.fIdSetup();
-        bool gotTicket = t.getTicket();
+        // t->fPartSetup("test");
+        // t->fIdSetup(ID);
+        // bool gotTicket = t->getTicket();
 
-        if (gotTicket == false)
-        {
-            delete t;
-        }
+        // if (gotTicket == false)
+        // {
+        //     delete t;
+        // }
     }
+    
     return 0;
 }
