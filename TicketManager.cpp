@@ -1,4 +1,3 @@
-#include "common.h"
 #include "TicketManager.h"
 
 // void TicketManager::ReadAllTicketData()
