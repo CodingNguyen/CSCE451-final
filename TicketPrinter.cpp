@@ -126,3 +126,11 @@ void TicketPrinter::printEntranceYear()
     int i = t->getEntranceYear();
     printf("EntranceYear %d ", i);
 }
+void TicketPrinter::printBarCode()
+{
+    printf("BarCode %s\n","< barcode sample >");
+}
+void TicketPrinter::printPhoto()
+{
+    printf("Photo %s\n","< photo sample >");
+}

@@ -30,4 +30,7 @@ public:
     void printExperationDateMonth();
     void printExperationDateDay();
     void printEntranceYear();
+
+    void printPhoto();
+    void printBarCode();
 };
