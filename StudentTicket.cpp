@@ -1,5 +1,36 @@
 #include "StudentTicket.h"
 
+StudentTicket::StudentTicket() // not complete
+{
+    this->Universty = "Donetsk National University";
+    this->Id = 16487351;
+    this->EntranceYear = 2009;
+    this->IssueDateYear = 2009;
+    this->IssueDateMonth = 9;
+    this->IssueDateDay = 1;
+    this->ExperationDateYear= 2013;
+    this->ExperationDateMonth= 6;
+    this->ExperationDateDay=30;
+    this->Name = "Vasiliy";
+    this->Surname ="Petrovich"; 
+    //this->StudyType =
+    //this->StructuredUnit =
+    this->Specialization = "Physics";
+    //this->RectorCredentials =
+    //this->Part =
+    //this->Group =
+    this->FatherName ="Shevchenko V. P.";
+    //this->Faculty =
+    // "CA"
+    // "Pumpkin"
+    // ""
+    // "Day"
+    // "IDSS"
+    // "A"
+    // 0
+    // 0
+    // 0
+}
 void StudentTicket::setUniversty(string s)
 {
     this->Universty = s;
@@ -75,9 +106,9 @@ void StudentTicket::setFaculty(string s)
     this->Faculty = s;
 }
 
-void StudentTicket::setExplorationDateYear(int i)
+void StudentTicket::setExperationDateYear(int i)
 {
-    this->ExplorationDateYear = i;
+    this->ExperationDateYear = i;
 }
 
 void StudentTicket::setExperationDateMonth(int i)
@@ -176,9 +207,9 @@ string StudentTicket::getFaculty()
     return this->Faculty;
 }
 
-int StudentTicket::getExplorationDateYear()
+int StudentTicket::getExperationDateYear()
 {
-    return this->ExplorationDateYear;
+    return this->ExperationDateYear;
 }
 
 int StudentTicket::getExperationDateMonth()

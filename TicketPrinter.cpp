@@ -105,8 +105,8 @@ void TicketPrinter::printFaculty()
 void TicketPrinter::printExperationDateYear()
 {
     StudentTicket *t = this->getTicketFeild();
-    int i = t->getExplorationDateYear();
-    printf("ExplorationDateYear %d ", i);
+    int i = t->getExperationDateYear();
+    printf("ExperationDateYear %d ", i);
 }
 void TicketPrinter::printExperationDateMonth()
 {
@@ -126,7 +126,7 @@ void TicketPrinter::printEntranceYear()
     int i = t->getEntranceYear();
     printf("EntranceYear %d ", i);
 }
-void TicketPrinter::printBarCode()
+void TicketPrinter::printBarCode() 
 {
     printf("BarCode %s\n","< barcode sample >");
 }

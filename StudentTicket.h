@@ -18,7 +18,7 @@ private:
     string Group;
     string FatherName;
     string Faculty;
-    int ExplorationDateYear;
+    int ExperationDateYear;
     int ExperationDateMonth;
     int ExperationDateDay;
     int EntranceYear;
@@ -39,7 +39,7 @@ public:
     void setGroup(string s);
     void setFatherName(string s);
     void setFaculty(string s);
-    void setExplorationDateYear(int i);
+    void setExperationDateYear(int i);
     void setExperationDateMonth(int i);
     void setExperationDateDay(int i);
     void setEntranceYear(int i);
@@ -59,7 +59,7 @@ public:
     string getGroup();
     string getFatherName();
     string getFaculty();
-    int getExplorationDateYear();
+    int getExperationDateYear();
     int getExperationDateMonth();
     int getExperationDateDay();
     int getEntranceYear();
