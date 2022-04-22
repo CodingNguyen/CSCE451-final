@@ -115,17 +115,7 @@ bool TicketManager::openTicket(int i) // with parameter?
 }
 
 
-void TicketManager::readAllTicketData()
-{
-    // Todo need, ticketreader class
-    TicketReader *readPtr;
 
-    readPtr = getReaderField();
-    // TicketReader::readUniversity(readPtr);
-    readPtr->readUniversty();
-
-    // ... continute pattern ...
-}
 
 bool TicketManager::readTicket()
 {

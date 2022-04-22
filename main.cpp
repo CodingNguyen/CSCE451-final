@@ -4,21 +4,32 @@
 #include "TicketManager.h"
 #include "StudentTicket.h"
 
-int getPartFromCommandLine(int argc, char *argv[])
+string getPartFromCommandLine(int argc, char *argv[])
 {
-    return 1;
+    if(argc < 2)
+    {
+        return;
+    }
+    else{
+        return argv[1];
+    }
 }
 int getIdFromCommandLine(int argc, char *argv[])
 {
-    return 1;
+    if(argc < 3)
+    {
+        return;
+    }
+    else{
+        return stoi(argv[2]);
+    }
 }
 
 int main(int argc, char *argv[])
 {
     bool badInput;
-    getPartFromCommandLine(argc,argv); 
-    getIdFromCommandLine(argc,argv); 
-    int ID = 0;
+    string part = getPartFromCommandLine(argc,argv); 
+    int ID = getIdFromCommandLine(argc,argv); 
     
     if (ID != 0)
     {
@@ -35,16 +46,16 @@ int main(int argc, char *argv[])
     }
     else // good input
     {
-        // TicketManager *t = new TicketManager();
+        TicketManager *t = new TicketManager();
 
-        // t->fPartSetup("test");
-        // t->fIdSetup(ID);
-        // bool gotTicket = t->getTicket();
+        t->fPartSetup(part);
+        t->fIdSetup(ID);
+        bool gotTicket = t->getTicket();
 
-        // if (gotTicket == false)
-        // {
-        //     delete t;
-        // }
+        if (gotTicket == false)
+        {
+            delete t;
+        }
     }
     
     return 0;
