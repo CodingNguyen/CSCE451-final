@@ -5,9 +5,9 @@
 class TicketManager
 {
 private:
-    TicketReader *tReader; // not defined yet
-    StudentTicket *sTicket; // not defined yet
-    TicketPrinter *tPrinter; // not defined yet
+    TicketReader *tReader; 
+    StudentTicket *sTicket; 
+    TicketPrinter *tPrinter; 
     string parts;
     int id;
 

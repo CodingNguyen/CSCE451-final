@@ -149,12 +149,56 @@ bool TicketManager::readTicket(int i) // with parameter?
 
 void TicketManager::showTicket()
 {
-    // Todo need, ticketreader class
-    TicketPrinter *printPtr;
+    TicketPrinter* printPtr;
+    printPtr = this->getPrinterField();
 
-    printPtr = getPrinterField();
-    // TicketPrinter::readUniversity(printPtr);
     printPtr->printUniversty();
+    printPtr->printSurname();
+    printPtr->printStudyType();
+    printPtr->printStructuredUnit();
+    printPtr->printSpecialization();
+    printPtr->printRectorCredentials();
+    printPtr->printPart();
+    printPtr->printName();
+    printPtr->printIssueDateYear();
+    printPtr->printIssueDateMonth();
+    printPtr->printIssueDateDay();
+    printPtr->printId();
+    printPtr->printGroup();
+    printPtr->printFatherName();
+    printPtr->printFaculty();
+    printPtr->printExperationDateYear();
+    printPtr->printExperationDateMonth();
+    printPtr->printExperationDateDay();
+    printPtr->printEntranceYear();
+    printPtr->printPhoto();
+    printPtr->printBarCode();
+   
 
-    // ... continute pattern ...
+}
+
+void TicketManager::readAllTicketData()
+{
+    TicketReader* readptr;
+    readptr = this->getReaderField();
+
+    readptr->readUniversty();
+    readptr->readSurname();
+    readptr->readStudyType();
+    readptr->readStructuredUnit();
+    readptr->readSpecialization();
+    readptr->readRectorCredentials();
+    readptr->readPart();
+    readptr->readName();
+    readptr->readIssueDateYear();
+    readptr->readIssueDateMonth();
+    readptr->readIssueDateDay();
+    readptr->readId();
+    readptr->readGroup();
+    readptr->readFatherName();
+    readptr->readFaculty();
+    readptr->readexpirationDateYear();
+    readptr->readExperationDateMonth();
+    readptr->readExperationDateDay();
+    readptr->readEntranceYear();
 }

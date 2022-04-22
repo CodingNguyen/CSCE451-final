@@ -4,11 +4,21 @@
 #include "TicketManager.h"
 #include "StudentTicket.h"
 
+int getPartFromCommandLine(int argc, char *argv[])
+{
+    return 1;
+}
+int getIdFromCommandLine(int argc, char *argv[])
+{
+    return 1;
+}
+
 int main(int argc, char *argv[])
 {
     bool badInput;
-    // getPartFromCommandLine(); not defined yet
-    int ID = 0; // getIdFromCommandLine(); not defined yet
+    getPartFromCommandLine(argc,argv); 
+    getIdFromCommandLine(argc,argv); 
+    int ID = 0;
     
     if (ID != 0)
     {
