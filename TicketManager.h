@@ -1,6 +1,7 @@
 #include "common.h"
 #include "StudentTicket.h"
-
+#include "TicketReader.h"
+#include "TicketPrinter.h"
 class TicketManager
 {
 private:
@@ -18,12 +19,12 @@ public:
     void fPartSetup(string s);
     int getfId();
     string getfPart();
-    TicketPrinter getPrinterField();
-    TicketReader getReaderField();
+    TicketPrinter* getPrinterField();
+    TicketReader* getReaderField();
+    StudentTicket* getTicketField();
 
     bool getTicket();
     bool getTicket(int unkwnParam);
-    void getTicketField();
 
     bool openTicket();
     bool openTicket(int unkwnParam);

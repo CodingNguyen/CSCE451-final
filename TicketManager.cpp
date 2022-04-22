@@ -1,12 +1,11 @@
 #include "TicketManager.h"
-#include "TicketReader.h"
-#include "TicketPrinter.h"
+
 
 TicketManager::TicketManager()
 {
-    this->sTicket = new StudentTicket;
-    this->tReader = new TicketReader;
-    this->tPrinter = new TicketPrinter;
+    this->sTicket = new StudentTicket();
+    this->tReader = new TicketReader();
+    this->tPrinter = new TicketPrinter();
 }
 
 TicketManager::~TicketManager()
@@ -36,16 +35,19 @@ string TicketManager::getfPart() /*not sure about return yet*/
     return parts;
 }
 
-TicketPrinter TicketManager::getPrinterField() /*not sure about return yet*/
+TicketPrinter* TicketManager::getPrinterField() /*not sure about return yet*/
 {
-    return *tPrinter;
+    return tPrinter;
 }
 
-TicketReader TicketManager::getReaderField()
+TicketReader* TicketManager::getReaderField()
 {
-    return *tReader;
+    return tReader;
 }
-
+StudentTicket* TicketManager::getTicketField()
+{
+    return sTicket;
+}
 bool TicketManager::getTicket()
 {
     bool r = readTicket();
@@ -66,10 +68,7 @@ bool TicketManager::getTicket(int i) // with parameter?
     return r;
 }
 
-void TicketManager::getTicketField()
-{
-    return *sTicket;
-}
+
 
 bool TicketManager::openTicket()
 {
@@ -123,7 +122,7 @@ void TicketManager::readAllTicketData()
 
     readPtr = getReaderField();
     // TicketReader::readUniversity(readPtr);
-    readPtr.readUniversity();
+    readPtr->readUniversty();
 
     // ... continute pattern ...
 }
@@ -155,7 +154,7 @@ void TicketManager::showTicket()
 
     printPtr = getPrinterField();
     // TicketPrinter::readUniversity(printPtr);
-    printPtr.printUniversity();
+    printPtr->printUniversty();
 
     // ... continute pattern ...
 }

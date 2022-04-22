@@ -24,6 +24,8 @@ private:
     int EntranceYear;
 
 public:
+    StudentTicket();
+    ~StudentTicket();
     void setUniversty(string s);
     void setSurname(string s);
     void setStudyType(string s);
