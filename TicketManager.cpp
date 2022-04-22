@@ -1,4 +1,6 @@
 #include "TicketManager.h"
+#include "TicketReader.h"
+#include "TicketPrinter.h"
 
 TicketManager::TicketManager()
 {
