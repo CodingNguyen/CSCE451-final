@@ -1,2 +1,2 @@
 makeTicketSystem:
-	g++ main.cpp -o ticketSystem
+	g++ main.cpp Reader.cpp StudentTicket.cpp TicketManager.cpp TicketPrinter.cpp TicketReader.cpp -o ticketSystem
