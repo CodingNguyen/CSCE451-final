@@ -15,50 +15,50 @@ void TicketPrinter::SetupTicket(StudentTicket* ticket)
 void TicketPrinter::printUniversity()
 {
     StudentTicket *t = this->getTicketFeild();
-    string s = t->getUniversty();
-    printf("Universty %s ", s);
+    string s = t->getUniversity();
+    printf("Universty %s ", s.c_str());
 }
 void TicketPrinter::printSurname()
 {
     StudentTicket *t = this->getTicketFeild();
     string s = t->getSurname();
-    printf("Surname %s ", s);
+    printf("Surname %s ", s.c_str());
 }
 void TicketPrinter::printStudyType()
 {
     StudentTicket *t = this->getTicketFeild();
     string s = t->getStudyType();
-    printf("StudyType %s ", s);
+    printf("StudyType %s ", s.c_str());
 }
 void TicketPrinter::printStructuredUnit()
 {
     StudentTicket *t = this->getTicketFeild();
     string s = t->getStructuredUnit();
-    printf("StructuredUnit %s ", s);
+    printf("StructuredUnit %s ", s.c_str());
 }
 void TicketPrinter::printSpecialization()
 {
     StudentTicket *t = this->getTicketFeild();
     string s = t->getSpecialization();
-    printf("Specialization %s ", s);
+    printf("Specialization %s ", s.c_str());
 }
 void TicketPrinter::printRectorCredentials()
 {
     StudentTicket *t = this->getTicketFeild();
     string s = t->getRectorCredentials();
-    printf("RectorCredentials %s ", s);
+    printf("RectorCredentials %s ", s.c_str());
 }
 void TicketPrinter::printPart()
 {
     StudentTicket *t = this->getTicketFeild();
     string s = t->getPart();
-    printf("Part %s ", s);
+    printf("Part %s ", s.c_str());
 }
 void TicketPrinter::printName()
 {
     StudentTicket *t = this->getTicketFeild();
     string s = t->getName();
-    printf("Name %s ", s);
+    printf("Name %s ", s.c_str());
 }
 void TicketPrinter::printIssueDateYear()
 {
@@ -88,19 +88,19 @@ void TicketPrinter::printGroup()
 {
     StudentTicket *t = this->getTicketFeild();
     string s = t->getGroup();
-    printf("Group %d ", s);
+    printf("Group %s ", s.c_str());
 }
 void TicketPrinter::printFatherName()
 {
     StudentTicket *t = this->getTicketFeild();
     string s = t->getFatherName();
-    printf("FatherName %d ", s);
+    printf("FatherName %s ", s.c_str());
 }
 void TicketPrinter::printFaculty()
 {
     StudentTicket *t = this->getTicketFeild();
     string s = t->getFaculty();
-    printf("Faculty %d ", s);
+    printf("Faculty %s ", s.c_str());
 }
 void TicketPrinter::printExperationDateYear()
 {
