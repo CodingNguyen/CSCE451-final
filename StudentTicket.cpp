@@ -2,7 +2,7 @@
 
 StudentTicket::StudentTicket() // not complete
 {
-    this->Universty = "Donetsk National University";
+    this->University = "Donetsk National University";
     this->Id = 16487351;
     this->EntranceYear = 2009;
     this->IssueDateYear = 2009;
@@ -31,9 +31,9 @@ StudentTicket::StudentTicket() // not complete
     // 0
     // 0
 }
-void StudentTicket::setUniversty(string s)
+void StudentTicket::setUniversity(string s)
 {
-    this->Universty = s;
+    this->University = s;
 }
 
 void StudentTicket::setSurname(string s)
@@ -126,15 +126,9 @@ void StudentTicket::setEntranceYear(int i)
     this->EntranceYear = i;
 }
 
-
-void StudentTicket::setUniversty(string Universty)
+string StudentTicket::getUniversity()
 {
-    this->Universty = Universty;
-}
-
-string StudentTicket::getUniversty()
-{
-    return this->Universty;
+    return this->University;
 }
 
 string StudentTicket::getSurname()

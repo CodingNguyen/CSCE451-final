@@ -3,7 +3,7 @@
 class StudentTicket
 {
 private:
-    string Universty;
+    string University;
     string Surname;
     string StudyType;
     string StructuredUnit;
@@ -26,7 +26,7 @@ private:
 public:
     StudentTicket();
     ~StudentTicket();
-    void setUniversty(string s);
+    void setUniversity(string s);
     void setSurname(string s);
     void setStudyType(string s);
     void setStructuredUnit(string s);
@@ -46,7 +46,7 @@ public:
     void setExperationDateDay(int i);
     void setEntranceYear(int i);
 
-    string getUniversty();
+    string getUniversity();
     string getSurname();
     string getStudyType();
     string getStructuredUnit();
