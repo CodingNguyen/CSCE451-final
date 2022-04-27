@@ -1,3 +1,6 @@
+#ifndef STUDENT_TICKET_H
+#define STUDENT_TICKET_H
+
 #include "common.h"
 
 class StudentTicket
@@ -66,3 +69,4 @@ public:
     int getExperationDateDay();
     int getEntranceYear();
 };
+#endif

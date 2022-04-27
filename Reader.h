@@ -1,3 +1,6 @@
+#ifndef READER_H
+#define READER_H
+
 #include "common.h"
 
 class Reader
@@ -11,3 +14,4 @@ public:
     static long long readLongLongLine();
 
 };
+#endif

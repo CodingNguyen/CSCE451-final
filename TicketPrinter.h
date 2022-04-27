@@ -1,3 +1,6 @@
+#ifndef TICKET_PRINTER_H
+#define TICKET_PRINTER_H
+
 #include "common.h"
 #include "StudentTicket.h"
 
@@ -9,7 +12,7 @@ private:
     
 public:
     TicketPrinter();
-    void SetupTicket(StudentTicket* s );
+    void SetupTicket(StudentTicket* s);
     StudentTicket* getTicketFeild();
     void printUniversity();
     void printSurname();
@@ -34,3 +37,4 @@ public:
     void printPhoto();
     void printBarCode();
 };
+#endif

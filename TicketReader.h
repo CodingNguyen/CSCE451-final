@@ -1,3 +1,6 @@
+#ifndef TICKET_READER_H
+#define TICKET_READER_H
+
 #include "common.h"
 #include "StudentTicket.h"
 #include "Reader.h"
@@ -32,3 +35,4 @@ public:
     void readExperationDateDay();
     void readEntranceYear();
 };
+#endif

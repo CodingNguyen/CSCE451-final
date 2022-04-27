@@ -1,3 +1,6 @@
+#ifndef TICKET_MANAGER_H
+#define TICKET_MANAGER_H
+
 #include "common.h"
 #include "TicketReader.h"
 #include "TicketPrinter.h"
@@ -36,3 +39,4 @@ public:
 
     void showTicket();
 };
+#endif
