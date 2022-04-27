@@ -54,15 +54,6 @@ bool TicketManager::getTicket()
     return r;
 }
 
-bool TicketManager::getTicket(int i) // with parameter?
-{
-    char r = readTicket(i);
-    if(r)
-    {
-        showTicket();
-    }
-    return r;
-}
 
 StudentTicket* TicketManager::getTicketField()
 {
@@ -76,6 +67,7 @@ bool TicketManager::openTicket()
     string buf = "./data" + parts + "_" + to_string(id);
 
     fp = fopen(buf.c_str(), "r");
+    //TODO add helper function to read from file. 
     if(!fp)
     {
         cout << "Ticket not found.\n";
@@ -96,16 +88,6 @@ void TicketManager::readAllTicketData()
 bool TicketManager::readTicket()
 {
     bool o = openTicket();
-    if (o == true)
-    {
-        readAllTicketData();
-    }
-    return o;
-}
-
-bool TicketManager::readTicket(int i) // with parameter?
-{
-    bool o = openTicket(i);
     if (o == true)
     {
         readAllTicketData();
