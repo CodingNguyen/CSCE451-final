@@ -3,8 +3,14 @@
 TicketReader::TicketReader()
 {
 }
+
 TicketReader::~TicketReader()
 {
+}
+
+StudentTicket* TicketReader::getTicketField()
+{
+    return ticket;
 }
 
 void TicketReader::readUniversity()

@@ -13,7 +13,7 @@ private:
 public:
     TicketPrinter();
     void SetupTicket(StudentTicket* s);
-    StudentTicket* getTicketFeild();
+    StudentTicket* getTicketField();
     void printUniversity();
     void printSurname();
     void printStructuredUnit();
