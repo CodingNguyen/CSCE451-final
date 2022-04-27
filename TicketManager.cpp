@@ -72,29 +72,16 @@ StudentTicket* TicketManager::getTicketField()
 bool TicketManager::openTicket()
 {
     FILE *fp;
-
-    // memory leak?
     int i;
-    // i = *(int*)(GS_OFFSET + 0x14)
+    string buf = "./data" + parts + "_" + id;
 
-    char *buf = new char[100];
-    TicketManager tmArr[24]; // array of Ticket Managers? Not sure if error of decompilation
-    long id = getfId(); // why call getfId within own class
-    
-    // getfPart(); // called but not set to anything? Idk
-    // assumption...
-    const char *str = getfPart().c_str();
-    sprintf(buf, "./data%s_%lld", str, id);
-
-    // using a file pointer to read standard in for some reason
-    fp = freopen(buf, "r", stdin);
-    if(fp == (FILE*)0)
+    fp = fopen(buf.c_str(), "r");
+    if(!fp)
     {
-        puts("Ticket not found.");
+        cout << "Ticket not found.\n";
     }
 
-    // not sure what the other if statement is checking
-    // "if(i == *(int*)(in_GS_OFFSET + 0x14))"
+    // returns True is ticket was opened
     return fp != (FILE*)0;
 }
 
