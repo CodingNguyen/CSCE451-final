@@ -17,3 +17,5 @@ TicketManager:
         freopen() call...
             trying to open file in buf and redirecting stdin to file
             file is never close
+
+        openTicket(int i) seems to be dead code, removed, TODO - recheck decompilation

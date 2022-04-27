@@ -73,7 +73,7 @@ bool TicketManager::openTicket()
 {
     FILE *fp;
     int i;
-    string buf = "./data" + parts + "_" + id;
+    string buf = "./data" + parts + "_" + to_string(id);
 
     fp = fopen(buf.c_str(), "r");
     if(!fp)
@@ -84,22 +84,6 @@ bool TicketManager::openTicket()
     // returns True is ticket was opened
     return fp != (FILE*)0;
 }
-
-bool TicketManager::openTicket(int i) // with parameter?
-{
-    // another mem leak?
-    char *buf = new char[100];
-    FILE *fp;
-
-    sprintf(buf, "./data/%u", i);
-    
-    if(fp == (FILE*)0)
-    {
-        puts("Ticket not found.");
-    }
-    return fp != (FILE*)0;
-}
-
 
 void TicketManager::readAllTicketData()
 {

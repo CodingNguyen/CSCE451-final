@@ -30,7 +30,6 @@ public:
     bool getTicket(int unkwnParam);
 
     bool openTicket();
-    bool openTicket(int unkwnParam);
     
     void readAllTicketData();
 
