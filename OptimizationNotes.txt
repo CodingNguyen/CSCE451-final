@@ -22,9 +22,11 @@ TicketManager:
 
 Main:
     Changed if else statement that only sets a bool to just a bool
-    Functions to read command line args seem extraneous, removed
-    and adjusted code accordingly
-
-    Code only deleted dynamically allocated TicketManager if getTicket() returned true...
-    Should delete anyway at end of function.
-    Now there doesn't seem to be a use for GetTicket() in main? Kept for now
+    Functions to read command line args can be replaced with single lines of code
+    Fixed bug where input with too few arguments could be accepted
+    Fixed bug where extra arguments are permitted and the user is not warned
+    Fixed bug where null value for Part was accepted
+    Fixed bug where string value for id cause segfault
+    Fixed bug where negative value for id caused segfault
+    Removed bloat where id was using a long long data type when an int is sufficient
+    Removed memory leak where TicketManager object was only deleted if the GetTicket() returned true
