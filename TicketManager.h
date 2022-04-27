@@ -25,17 +25,11 @@ public:
     TicketPrinter* getPrinterField();
     TicketReader* getReaderField();
     StudentTicket* getTicketField();
-
-    bool getTicket();
-    bool getTicket(int unkwnParam);
-
-    bool openTicket();
     
-    void readAllTicketData();
-
+    bool getTicket();
     bool readTicket();
-    bool readTicket(int unkwnParam);
-
+    bool openTicket();
+    void readAllTicketData();
     void showTicket();
 };
 #endif

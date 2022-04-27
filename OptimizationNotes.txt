@@ -1,32 +1,38 @@
 TicketManager:
-    openTicket():
-        Array of TicketManagers is locally declared, but never used
-            Fix: Removed this line
+        TicketManager conains a lot of bloat and inneficient code. 
+            - Removed bloat by deleting array Array of TicketManagers which is never used
+            - Removed useless calls like getReaderField(), getPrinterField() and replaced with referencing the private variable
+            - Removed bloat where id was using a long long data type when an int is sufficient
+            - Removed unsued method getReaderField()
+            - Removed unsued method getPrinterField()
 
-        GetXXX() is called within itself, but class has access to its
-        own private class variable
-        Also is assigned to a long, but does not seem to need to be a long
-            Fix: Removed function call, used id in its place
-        Char array in buff is dynamically allocated but...
-            - Never cleaned up
-            - Does not need to be dynamically allocated
-            Fix:
-        Sprintf is used to write to the dynamic char array,
-        replaced with string concatenation
+        TicketManager contains a duplicate overloaded version of methods which is never used. These methods are never used and serve no purpose since the ID value which is passed in was set by the user globally.
+            - Removed duplicate version of openTicket()
+            - Removed duplicate version of getTicket()
+            - removed duplicate version of showTicket()
+        
+        In OpenTicket() reading from the file has many issues:
+            Sprintf() and a dynamic char array buffer is used to construct the filepath
+                - Fixed Buffer overflow vulnerability by using string concatenation instead of a dynamic buffer
+                - Fixed Memory leak where buffer was never closed
+                - Fixed bloat of having a large dynaically allocated array that is largely unnecicary
 
-        freopen() call...
-            trying to open file in buf and redirecting stdin to file
-            file is never close
+            using freeopen() to open the file
+                - Fix memory leak as file is never closes
+                - extremely dangerous practice of Redirect file contents to stdin
 
-        openTicket(int i) seems to be dead code, removed, TODO - recheck decompilation
 
 Main:
-    Changed if else statement that only sets a bool to just a bool
-    Functions to read command line args can be replaced with single lines of code
-    Fixed bug where input with too few arguments could be accepted
-    Fixed bug where extra arguments are permitted and the user is not warned
-    Fixed bug where null value for Part was accepted
-    Fixed bug where string value for id cause segfault
-    Fixed bug where negative value for id caused segfault
-    Removed bloat where id was using a long long data type when an int is sufficient
-    Removed memory leak where TicketManager object was only deleted if the GetTicket() returned true
+    Input args are not properly accepted. This opens the program to many bugs.
+        - Functions to read command line args can be replaced with single lines of code
+        - Fixed bug where input with too few arguments could be accepted
+        - Fixed bug where extra arguments are permitted and the user is not warned
+        - Fixed bug where "usage" statement was not printed on bad usage
+        - Fixed bug where null value for Part was accepted
+        - Fixed bug where string value for id cause segfault
+        - Fixed bug where negative value for id caused segfault
+    
+    Input args are read inefficiently
+        - Changed if else statement that only sets a bool to just a bool
+        - Removed bloat where id was using a long long data type when an int is sufficient
+        - Removed memory leak where TicketManager object was only deleted if the GetTicket() returned true

@@ -87,12 +87,8 @@ bool TicketManager::openTicket()
 
 void TicketManager::readAllTicketData()
 {
-    // Todo need, ticketreader class
-    TicketReader *readPtr;
-
-    readPtr = getReaderField();
-    // TicketReader::readUniversity(readPtr);
-    readPtr->readUniversity();
+    
+    this->tReader->readUniversity();
 
     // ... continute pattern ...
 }
@@ -119,12 +115,9 @@ bool TicketManager::readTicket(int i) // with parameter?
 
 void TicketManager::showTicket()
 {
-    // Todo need, ticketreader class
-    TicketPrinter *printPtr;
 
-    printPtr = getPrinterField();
-    // TicketPrinter::readUniversity(printPtr);
-    printPtr->printUniversity();
+    this->tPrinter->printUniversity();
+    this->tPrinter->printBarCode();
+    ///......
 
-    // ... continute pattern ...
 }
