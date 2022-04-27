@@ -1,34 +1,34 @@
 TicketManager:
-        * TicketManager conains a lot of bloat and inneficient code. 
-            - Removed bloat by deleting array Array of TicketManagers which is never used
-            - Removed useless calls like getReaderField(), getPrinterField() and replaced with referencing the private variable
-            - Removed bloat where id was using a long long data type when an int is sufficient
-            - Removed unsued method getReaderField()
-            - Removed unsued method getPrinterField()
+    * TicketManager conains a lot of bloat and inneficient code. 
+        - Removed bloat by deleting array Array of TicketManagers which is never used
+        - Removed useless calls like getReaderField(), getPrinterField() and replaced with referencing the private variable
+        - Removed bloat where id was using a long long data type when an int is sufficient
+        - Removed unsued method getReaderField()
+        - Removed unsued method getPrinterField()
 
-        * TicketManager contains a duplicate overloaded version of methods which is never used. These methods are never used and serve no purpose since the ID value which is passed in was set by the user globally.
-            - Removed duplicate version of openTicket()
-            - Removed duplicate version of getTicket()
-            - removed duplicate version of showTicket()
+    * TicketManager contains a duplicate overloaded version of methods which is never used. These methods are never used and serve no purpose since the ID value which is passed in was set by the user globally.
+        - Removed duplicate version of openTicket()
+        - Removed duplicate version of getTicket()
+        - removed duplicate version of showTicket()
+    
+    * In OpenTicket() reading from the file has many issues:
+        Sprintf() and a dynamic char array buffer is used to construct the filepath
+            - Fixed Buffer overflow vulnerability by using string concatenation instead of a dynamic buffer
+            - Fixed Memory leak where buffer was never closed
+            - Fixed bloat of having a large dynaically allocated array that is largely unnecicary
+
+        using freeopen() to open the file
+            - Fix memory leak as file is never closes
+            - extremely dangerous practice of Redirect file contents to stdin
         
-        * In OpenTicket() reading from the file has many issues:
-            Sprintf() and a dynamic char array buffer is used to construct the filepath
-                - Fixed Buffer overflow vulnerability by using string concatenation instead of a dynamic buffer
-                - Fixed Memory leak where buffer was never closed
-                - Fixed bloat of having a large dynaically allocated array that is largely unnecicary
-
-            using freeopen() to open the file
-                - Fix memory leak as file is never closes
-                - extremely dangerous practice of Redirect file contents to stdin
-            
-            TicketManager uses freopen to pipe the contents of the file into stdin. This is very dangerous because stdin is not private or safe. Other programs could be listening to or writing from stdin
-                - Created helper function to read in data from open file safely
-                - Fixed privacy vulnerability where other programs could listen to stdin and learn all users data
-                - Fixed security vulnerability where other program could write to stdin changing the data arbitrarily
-                - Fixed bug where if user accidentally writes to stdin the program segfaults
-            
-        * TicketManager has functions which are unnecicarly nested
-            - TODO fix these, low priotiry
+        TicketManager uses freopen to pipe the contents of the file into stdin. This is very dangerous because stdin is not private or safe. Other programs could be listening to or writing from stdin
+            - Created helper function to read in data from open file safely
+            - Fixed privacy vulnerability where other programs could listen to stdin and learn all users data
+            - Fixed security vulnerability where other program could write to stdin changing the data arbitrarily
+            - Fixed bug where if user accidentally writes to stdin the program segfaults
+        
+    * TicketManager has functions which are unnecicarly nested
+        - TODO fix these, low priotiry
 
 Main:
     * Input args are not properly accepted. This opens the program to many bugs.
@@ -46,7 +46,7 @@ Main:
         - Removed memory leak where TicketManager object was only deleted if the GetTicket() returned true
 
 TicketPrinter:
-    *TicketPrinter is extremely innificent with 20 seperate methods to print feilds
-        - Fixed code bloat by adding a print all function 
+    * TicketPrinter is extremely innificent with 20 seperate methods to print feilds
+        - removed 19 unnecicary functions by adding a print all function 
         - Removed feilds that are completely unsued, Photo and BarCode
-        
+

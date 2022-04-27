@@ -62,19 +62,35 @@ StudentTicket* TicketManager::getTicketField()
 
 bool TicketManager::openTicket()
 {
-    FILE *fp;
-    int i;
+    //FILE *fp;
     string buf = "./data" + parts + "_" + to_string(id);
+    vector<string> vecOfStr;
 
-    fp = fopen(buf.c_str(), "r");
-    //TODO add helper function to read from file. 
-    if(!fp)
+    std::ifstream in(buf.c_str());
+    if(!in)
     {
         cout << "Ticket not found.\n";
     }
 
+    //fp = fopen(buf.c_str(), "r");
+    //TODO add helper function to read from file. 
+    
+    std::string str;
+    // Read the next line from File untill it reaches the end.
+    while (std::getline(in, str))
+    {
+        // Line contains string of length > 0 then save it in vector
+        if(str.size() > 0)
+        {
+            vecOfStrs.push_back(str);
+        }
+    }
+    //Close The File
+    in.close();
+
     // returns True is ticket was opened
-    return fp != (FILE*)0;
+    this->ticketData = vecOfStr;
+    return true;
 }
 
 void TicketManager::readAllTicketData()
@@ -97,9 +113,5 @@ bool TicketManager::readTicket()
 
 void TicketManager::showTicket()
 {
-
-    this->tPrinter->printUniversity();
-    this->tPrinter->printBarCode();
-    ///......
-
+    this->tPrinter->printAll();
 }

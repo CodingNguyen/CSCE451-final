@@ -13,6 +13,7 @@ private:
     TicketPrinter *tPrinter; 
     string parts;
     int id;
+    std::vector<std::string> ticketData;
 
 public:
     TicketManager();
