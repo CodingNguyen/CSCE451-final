@@ -19,3 +19,12 @@ TicketManager:
             file is never close
 
         openTicket(int i) seems to be dead code, removed, TODO - recheck decompilation
+
+Main:
+    Changed if else statement that only sets a bool to just a bool
+    Functions to read command line args seem extraneous, removed
+    and adjusted code accordingly
+
+    Code only deleted dynamically allocated TicketManager if getTicket() returned true...
+    Should delete anyway at end of function.
+    Now there doesn't seem to be a use for GetTicket() in main? Kept for now
