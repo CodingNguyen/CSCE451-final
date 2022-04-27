@@ -10,7 +10,7 @@ public:
     TicketPrinter();
     void SetupTicket(StudentTicket* s );
     StudentTicket* getTicketFeild();
-    void printUniversty();
+    void printUniversity();
     void printSurname();
     void printStructuredUnit();
     void printSpecialization();

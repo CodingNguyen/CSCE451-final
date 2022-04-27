@@ -13,7 +13,7 @@ public:
     ~TicketReader();
     StudentTicket* getTicketFeild();
     void SetupTicket(StudentTicket* s);
-    void readUniversty();
+    void readUniversity();
     void readSurname();
     void readStudyType();
     void readStructuredUnit();

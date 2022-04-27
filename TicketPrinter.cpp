@@ -12,7 +12,7 @@ void TicketPrinter::SetupTicket(StudentTicket* ticket)
 {
      this->ticket = ticket;
 }
-void TicketPrinter::printUniversty()
+void TicketPrinter::printUniversity()
 {
     StudentTicket *t = this->getTicketFeild();
     string s = t->getUniversty();

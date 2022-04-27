@@ -34,14 +34,14 @@ string TicketManager::getfPart() /*not sure about return yet*/
     return parts;
 }
 
-TicketPrinter TicketManager::getPrinterField() /*not sure about return yet*/
+TicketPrinter* TicketManager::getPrinterField() /*not sure about return yet*/
 {
-    return *tPrinter;
+    return tPrinter;
 }
 
-TicketReader TicketManager::getReaderField()
+TicketReader* TicketManager::getReaderField()
 {
-    return *tReader;
+    return tReader;
 }
 
 bool TicketManager::getTicket()
@@ -64,9 +64,9 @@ bool TicketManager::getTicket(int i) // with parameter?
     return r;
 }
 
-void TicketManager::getTicketField()
+StudentTicket* TicketManager::getTicketField()
 {
-    return *sTicket;
+    return sTicket;
 }
 
 bool TicketManager::openTicket()
@@ -121,7 +121,7 @@ void TicketManager::readAllTicketData()
 
     readPtr = getReaderField();
     // TicketReader::readUniversity(readPtr);
-    readPtr.readUniversity();
+    readPtr->readUniversity();
 
     // ... continute pattern ...
 }
@@ -153,7 +153,7 @@ void TicketManager::showTicket()
 
     printPtr = getPrinterField();
     // TicketPrinter::readUniversity(printPtr);
-    printPtr.printUniversity();
+    printPtr->printUniversity();
 
     // ... continute pattern ...
 }
