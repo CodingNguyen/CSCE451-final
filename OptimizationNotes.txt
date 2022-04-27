@@ -20,7 +20,13 @@ TicketManager:
             using freeopen() to open the file
                 - Fix memory leak as file is never closes
                 - extremely dangerous practice of Redirect file contents to stdin
-
+            
+            TicketManager uses freopen to pipe the contents of the file into stdin. This is very dangerous because stdin is not private or safe. Other programs could be listening to or writing from stdin
+                - Created helper function to read in data from open file safely
+                - Fixed privacy vulnerability where other programs could listen to stdin and learn all users data
+                - Fixed security vulnerability where other program could write to stdin changing the data arbitrarily
+                - Fixed bug where if user accidentally writes to stdin the program segfaults
+            
 
 Main:
     Input args are not properly accepted. This opens the program to many bugs.
