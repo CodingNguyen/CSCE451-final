@@ -1,44 +1,19 @@
 #include "common.h"
 #include "TicketManager.h"
 
-string getPartFromCommandLine(int argc, char *argv[])
-{
-    if(argc < 2)
-    {
-        return "";
-    }
-    else{
-        return argv[1];
-    }
-}
-
-int getIdFromCommandLine(int argc, char *argv[])
-{
-    if(argc < 3)
-    {
-        return 0;
-    }
-    else{
-        return stoi(argv[2]);
-    }
-}
-
 int main(int argc, char *argv[])
 {
-    bool badInput;
-    string part = getPartFromCommandLine(argc,argv); 
-    int ID = getIdFromCommandLine(argc,argv); 
-    
-    if (ID != 0)
+    if(argc != 3)
     {
-        badInput = false;
-    }
-    else
-    {
-        badInput = true;
+        puts("usage: x Part Id");
+        exit();
     }
 
-    if (badInput)
+    bool badInput;
+    string part = argv[1]; 
+    int id = stoi(argv[2]); 
+
+    if (id == 0) // bad input if id is 0
     {
         puts("usage: x Part Id");
     }
@@ -47,13 +22,9 @@ int main(int argc, char *argv[])
         TicketManager *t = new TicketManager();
 
         t->fPartSetup(part);
-        t->fIdSetup(ID);
+        t->fIdSetup(id);
         bool gotTicket = t->getTicket();
-
-        if (gotTicket == false)
-        {
-            delete t;
-        }
+        delete t;
     }
     
     return 0;

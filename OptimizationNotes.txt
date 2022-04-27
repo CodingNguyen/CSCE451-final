@@ -1,0 +1,30 @@
+TicketManager:
+    openTicket():
+        Array of TicketManagers is locally declared, but never used
+            Fix: Removed this line
+
+        GetXXX() is called within itself, but class has access to its
+        own private class variable
+        Also is assigned to a long, but does not seem to need to be a long
+            Fix: Removed function call, used id in its place
+        Char array in buff is dynamically allocated but...
+            - Never cleaned up
+            - Does not need to be dynamically allocated
+            Fix:
+        Sprintf is used to write to the dynamic char array,
+        replaced with string concatenation
+
+        freopen() call...
+            trying to open file in buf and redirecting stdin to file
+            file is never close
+
+        openTicket(int i) seems to be dead code, removed, TODO - recheck decompilation
+
+Main:
+    Changed if else statement that only sets a bool to just a bool
+    Functions to read command line args seem extraneous, removed
+    and adjusted code accordingly
+
+    Code only deleted dynamically allocated TicketManager if getTicket() returned true...
+    Should delete anyway at end of function.
+    Now there doesn't seem to be a use for GetTicket() in main? Kept for now
