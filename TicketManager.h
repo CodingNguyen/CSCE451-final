@@ -1,7 +1,7 @@
 #include "common.h"
-#include "StudentTicket.h"
 #include "TicketReader.h"
 #include "TicketPrinter.h"
+
 class TicketManager
 {
 private:

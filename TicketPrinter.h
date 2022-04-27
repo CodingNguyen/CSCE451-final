@@ -1,5 +1,4 @@
 #include "common.h"
-#include "StudentTicket.h"
 
 class TicketPrinter
 {

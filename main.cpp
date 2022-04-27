@@ -1,24 +1,22 @@
-//where is get barcode???
-
 #include "common.h"
 #include "TicketManager.h"
-#include "StudentTicket.h"
 
 string getPartFromCommandLine(int argc, char *argv[])
 {
     if(argc < 2)
     {
-        return;
+        return "";
     }
     else{
         return argv[1];
     }
 }
+
 int getIdFromCommandLine(int argc, char *argv[])
 {
     if(argc < 3)
     {
-        return;
+        return 0;
     }
     else{
         return stoi(argv[2]);

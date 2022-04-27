@@ -1,11 +1,10 @@
 #include "TicketManager.h"
 
-
 TicketManager::TicketManager()
 {
-    this->sTicket = new StudentTicket();
-    this->tReader = new TicketReader();
-    this->tPrinter = new TicketPrinter();
+    this->sTicket = new StudentTicket;
+    this->tReader = new TicketReader;
+    this->tPrinter = new TicketPrinter;
 }
 
 TicketManager::~TicketManager()
@@ -35,19 +34,16 @@ string TicketManager::getfPart() /*not sure about return yet*/
     return parts;
 }
 
-TicketPrinter* TicketManager::getPrinterField() /*not sure about return yet*/
+TicketPrinter TicketManager::getPrinterField() /*not sure about return yet*/
 {
-    return tPrinter;
+    return *tPrinter;
 }
 
-TicketReader* TicketManager::getReaderField()
+TicketReader TicketManager::getReaderField()
 {
-    return tReader;
+    return *tReader;
 }
-StudentTicket* TicketManager::getTicketField()
-{
-    return sTicket;
-}
+
 bool TicketManager::getTicket()
 {
     bool r = readTicket();
@@ -68,7 +64,10 @@ bool TicketManager::getTicket(int i) // with parameter?
     return r;
 }
 
-
+void TicketManager::getTicketField()
+{
+    return *sTicket;
+}
 
 bool TicketManager::openTicket()
 {
@@ -115,7 +114,17 @@ bool TicketManager::openTicket(int i) // with parameter?
 }
 
 
+void TicketManager::readAllTicketData()
+{
+    // Todo need, ticketreader class
+    TicketReader *readPtr;
 
+    readPtr = getReaderField();
+    // TicketReader::readUniversity(readPtr);
+    readPtr.readUniversity();
+
+    // ... continute pattern ...
+}
 
 bool TicketManager::readTicket()
 {
@@ -139,56 +148,12 @@ bool TicketManager::readTicket(int i) // with parameter?
 
 void TicketManager::showTicket()
 {
-    TicketPrinter* printPtr;
-    printPtr = this->getPrinterField();
+    // Todo need, ticketreader class
+    TicketPrinter *printPtr;
 
-    printPtr->printUniversty();
-    printPtr->printSurname();
-    printPtr->printStudyType();
-    printPtr->printStructuredUnit();
-    printPtr->printSpecialization();
-    printPtr->printRectorCredentials();
-    printPtr->printPart();
-    printPtr->printName();
-    printPtr->printIssueDateYear();
-    printPtr->printIssueDateMonth();
-    printPtr->printIssueDateDay();
-    printPtr->printId();
-    printPtr->printGroup();
-    printPtr->printFatherName();
-    printPtr->printFaculty();
-    printPtr->printExperationDateYear();
-    printPtr->printExperationDateMonth();
-    printPtr->printExperationDateDay();
-    printPtr->printEntranceYear();
-    printPtr->printPhoto();
-    printPtr->printBarCode();
-   
+    printPtr = getPrinterField();
+    // TicketPrinter::readUniversity(printPtr);
+    printPtr.printUniversity();
 
-}
-
-void TicketManager::readAllTicketData()
-{
-    TicketReader* readptr;
-    readptr = this->getReaderField();
-
-    readptr->readUniversty();
-    readptr->readSurname();
-    readptr->readStudyType();
-    readptr->readStructuredUnit();
-    readptr->readSpecialization();
-    readptr->readRectorCredentials();
-    readptr->readPart();
-    readptr->readName();
-    readptr->readIssueDateYear();
-    readptr->readIssueDateMonth();
-    readptr->readIssueDateDay();
-    readptr->readId();
-    readptr->readGroup();
-    readptr->readFatherName();
-    readptr->readFaculty();
-    readptr->readexpirationDateYear();
-    readptr->readExperationDateMonth();
-    readptr->readExperationDateDay();
-    readptr->readEntranceYear();
+    // ... continute pattern ...
 }
