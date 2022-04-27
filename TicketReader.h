@@ -5,13 +5,12 @@
 class TicketReader
 {
 private:
-
     StudentTicket* ticket;
     
 public:
     TicketReader();
     ~TicketReader();
-    StudentTicket* getTicketFeild();
+    StudentTicket* getTicketField();
     void SetupTicket(StudentTicket* s);
     void readUniversity();
     void readSurname();
