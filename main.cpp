@@ -6,7 +6,7 @@ int main(int argc, char *argv[])
     if (argc != 3) //always break if too many or too few inputs
     {
         puts("usage: x Part Id");
-        exit();
+        exit(0);
     }
 
     string part = argv[1];
@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
     catch (exception &err)
     {
         puts("usage: x Part Id");
-        exit();
+        exit(0);
     }
 
     if (id == 0 || part == "" ||id<0) // bad input if id is 0
