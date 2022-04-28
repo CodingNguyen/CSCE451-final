@@ -4,7 +4,7 @@ TicketPrinter::TicketPrinter()
 {
 }
 
-StudentTicket *TicketPrinter::getTicketFeild()
+StudentTicket* TicketPrinter::getTicketField()
 {
     return this->ticket;
 }
@@ -15,14 +15,14 @@ void TicketPrinter::SetupTicket(StudentTicket *ticket)
 void TicketPrinter::printAll()
 {
     StudentTicket* t = getTicketFeild();
-    printf("Universty %s ", t->getUniversty());
-    printf("Surname %s ", t->getSurname());
-    printf("StudyType %s ", t->getStudyType());
-    printf("StructuredUnit %s ", t->getStructuredUnit());
-    printf("Specialization %s ", t->getSpecialization());
-    printf("RectorCredentials %s ", t->getRectorCredentials());
-    printf("Part %s ", t->getPart());
-    printf("Name %s ", t->getName());
+    printf("Universty %s ", t->getUniversty().c_str());
+    printf("Surname %s ", t->getSurname().c_str());
+    printf("StudyType %s ", t->getStudyType().c_str());
+    printf("StructuredUnit %s ", t->getStructuredUnit().c_str());
+    printf("Specialization %s ", t->getSpecialization().c_str());
+    printf("RectorCredentials %s ", t->getRectorCredentials().c_str());
+    printf("Part %s ", t->getPart().c_str());
+    printf("Name %s ", t->getName().c_str());
     printf("IssueDateYear %d ", t->getIssueDateYear());
     printf("IssueDateMonth %d ", t->getIssueDateMonth());
     printf("IssueDateDay %d ", t->getIssueDateDay());
