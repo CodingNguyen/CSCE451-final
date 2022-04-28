@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
         exit(0);
     }
 
-    if (id == 0 || part == "" ||id<0) // bad input if id is 0
+    if (id == 0 || part == "" || id<0) // bad input if id is 0
     {
         puts("usage: x Part Id");
     }
