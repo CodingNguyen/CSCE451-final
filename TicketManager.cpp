@@ -82,7 +82,7 @@ bool TicketManager::openTicket()
         // Line contains string of length > 0 then save it in vector
         if(str.size() > 0)
         {
-            vecOfStrs.push_back(str);
+            vecOfStr.push_back(str);
         }
     }
     //Close The File
