@@ -51,6 +51,8 @@ bool TicketManager::getTicket()
     {
         showTicket();
     }
+    else
+        printf("Failed to show ticket\n");
     return r;
 }
 
@@ -95,10 +97,56 @@ bool TicketManager::openTicket()
 
 void TicketManager::readAllTicketData()
 {
-    
-    this->tReader->readUniversity();
+    // tReader->readUniversity();
+    // tReader->readSurname();
+    // tReader->readStudyType();
+    // tReader->readStructuredUnit();
+    // tReader->readSpecialization();
+    // tReader->readRectorCredentials();
+    // tReader->readPart();
+    // tReader->readName();
+    // tReader->readIssueDateYear();
+    // tReader->readIssueDateMonth();
+    // tReader->readIssueDateDay();
+    // tReader->readId();
+    // tReader->readGroup();
+    // tReader->readFatherName();
+    // tReader->readFaculty();
+    // tReader->readexpirationDateYear();
+    // tReader->readExperationDateMonth();
+    // tReader->readExperationDateDay();
+    // tReader->readEntranceYear();
 
-    // ... continute pattern ...
+    if(ticketData.size() != 19)
+        printf("ERROR: Expected ticket data with 19 fields, actual: %ld\n", ticketData.size());
+        exit(-1);
+    try 
+    { 
+        sTicket->setUniversity(ticketData[0]);
+        sTicket->setSurname(ticketData[1]);
+        sTicket->setStudyType(ticketData[2]);
+        sTicket->setStructuredUnit(ticketData[3]);
+        sTicket->setSpecialization(ticketData[4]);
+        sTicket->setRectorCredentials(ticketData[5]);
+        sTicket->setPart(ticketData[6]);
+        sTicket->setName(ticketData[7]);
+        sTicket->setIssueDateYear(stoi(ticketData[8]));
+        sTicket->setIssueDateMonth(stoi(ticketData[9]));
+        sTicket->setIssueDateDay(stoi(ticketData[10]));
+        sTicket->setId(stoi(ticketData[11]));
+        sTicket->setGroup(ticketData[12]);
+        sTicket->setFatherName(ticketData[13]);
+        sTicket->setFaculty(ticketData[14]);
+        sTicket->setExperationDateYear(stoi(ticketData[15]));
+        sTicket->setExperationDateMonth(stoi(ticketData[16]));
+        sTicket->setExperationDateDay(stoi(ticketData[17]));
+        sTicket->setEntranceYear(stoi(ticketData[18]));
+    }
+    catch(exception &err)
+    {
+        puts("Read ticket data failure");
+        exit(-1);
+    }
 }
 
 bool TicketManager::readTicket()
@@ -108,6 +156,9 @@ bool TicketManager::readTicket()
     {
         readAllTicketData();
     }
+    else
+        printf("Failed to open ticket\n");
+
     return o;
 }
 

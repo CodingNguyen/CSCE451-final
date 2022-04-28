@@ -32,6 +32,8 @@ int main(int argc, char *argv[])
         t->fPartSetup(part);
         t->fIdSetup(id);
         bool gotTicket = t->getTicket();
+        if(gotTicket)
+            puts("Found ticket");
         delete t;
     }
 
