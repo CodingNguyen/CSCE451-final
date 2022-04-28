@@ -65,8 +65,8 @@ bool TicketManager::openTicket()
     //FILE *fp;
     string buf = "./data" + parts + "_" + to_string(id);
     vector<string> vecOfStr;
-
-    std::ifstream in(buf.c_str());
+    std::ifstream in;
+    in(buf.c_str());
     if(!in)
     {
         cout << "Ticket not found.\n";
@@ -82,7 +82,7 @@ bool TicketManager::openTicket()
         // Line contains string of length > 0 then save it in vector
         if(str.size() > 0)
         {
-            vecOfStrs.push_back(str);
+            vecOfStr.push_back(str);
         }
     }
     //Close The File

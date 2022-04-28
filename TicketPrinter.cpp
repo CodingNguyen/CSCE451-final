@@ -27,9 +27,9 @@ void TicketPrinter::printAll()
     printf("IssueDateMonth %d ", t->getIssueDateMonth());
     printf("IssueDateDay %d ", t->getIssueDateDay());
     printf("Id %d ", t->getId());
-    printf("Group %s ", t->getGroup());
-    printf("FatherName %s ", t->getFatherName());
-    printf("Faculty %s ", t->getFaculty());
+    printf("Group %s ", t->getGroup().c_str());
+    printf("FatherName %s ", t->getFatherName().c_str());
+    printf("Faculty %s ", t->getFaculty().c_str());
     printf("ExperationDateYear %d ", t->getExperationDateYear());
     printf("ExperationDateMonth %d ", t->getExperationDateMonth());
     printf("ExperationDateDay %d ", t->getExperationDateDay());

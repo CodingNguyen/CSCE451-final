@@ -21,6 +21,6 @@ long long Reader::readLongLongLine()
     long long x;
     s = Reader::readStringLine();
     char *cstr = &s[0];//convert into cstring
-    sscanf(cstr, "%d", &x);    //seems like a dangerous way to cast to an int. 
+    sscanf(cstr, "%lld", &x);    //seems like a dangerous way to cast to an int. 
     return x;
 }
