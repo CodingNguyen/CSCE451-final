@@ -14,6 +14,7 @@ void TicketPrinter::SetupTicket(StudentTicket *ticket)
 }
 void TicketPrinter::printAll()
 {
+    StudentTicket* t = getTicketFeild();
     printf("Universty %s ", t->getUniversty());
     printf("Surname %s ", t->getSurname());
     printf("StudyType %s ", t->getStudyType());
