@@ -175,7 +175,8 @@ bool TicketManager::readTicket()
     {
         printf("Failed to open ticket\n");
     }
-
+    
+    printf("%d\n", o);
     return o;
 }
 
