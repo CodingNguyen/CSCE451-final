@@ -50,3 +50,14 @@ TicketPrinter:
         - removed 19 unnecicary functions by adding a print all function 
         - Removed feilds that are completely unsued, Photo and BarCode
 
+StudentTicket:
+    * Although the Student Ticket class is very wordy there is notthing really wrong with having getters and setters for a public class
+        - Wrote script to automate the generation of getters and setters
+Reader:
+    * Now that we are reading from a vector instead of from stdin this class is unnecicary
+        - Fixed bloat by removing entirely 
+
+TicketReader:
+
+TODO ticketreader
+TODO actually remove reader files
