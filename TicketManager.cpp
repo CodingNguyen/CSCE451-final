@@ -120,8 +120,11 @@ void TicketManager::readAllTicketData()
     // tReader->readEntranceYear();
 
     if(ticketData.size() != 19)
+    {
         printf("ERROR: Expected ticket data with 19 fields, actual: %ld\n", ticketData.size());
         exit(-1);
+    }
+
     try 
     { 
         sTicket->setUniversity(ticketData[0]);
@@ -161,7 +164,9 @@ bool TicketManager::readTicket()
         readAllTicketData();
     }
     else
+    {
         printf("Failed to open ticket\n");
+    }
 
     return o;
 }
