@@ -47,10 +47,10 @@ TicketReader* TicketManager::getReaderField()
 bool TicketManager::getTicket()
 {
     bool r = readTicket();
-    printf("read2");
+    printf("read2 \n");
     if (r == true)
     {
-	printf("showing Ticket");
+	printf("showing Ticket \n");
     showTicket();
     }
     else
@@ -175,7 +175,7 @@ bool TicketManager::readTicket()
     {
         printf("Failed to open ticket\n");
     }
-    
+
     printf("%d\n", o);
     return o;
 }
