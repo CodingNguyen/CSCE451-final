@@ -47,10 +47,8 @@ TicketReader* TicketManager::getReaderField()
 bool TicketManager::getTicket()
 {
     bool r = readTicket();
-    printf("read2 \n");
     if (r == true)
     {
-	printf("showing Ticket \n");
     showTicket();
     }
     else
@@ -151,7 +149,7 @@ void TicketManager::readAllTicketData()
         sTicket->setExperationDateMonth(stoi(ticketData[16]));
         sTicket->setExperationDateDay(stoi(ticketData[17]));
         sTicket->setEntranceYear(stoi(ticketData[18]));
-
+        this->tPrinter->SetupTicket(this->sTicket);
     }
     catch(exception &err)
     {
@@ -182,6 +180,5 @@ bool TicketManager::readTicket()
 
 void TicketManager::showTicket()
 {
-    printf("inside");
     this->tPrinter->printAll();
 }
