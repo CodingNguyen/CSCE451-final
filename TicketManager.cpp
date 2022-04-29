@@ -47,13 +47,17 @@ TicketReader* TicketManager::getReaderField()
 bool TicketManager::getTicket()
 {
     bool r = readTicket();
+    printf("read2");
     if (r == true)
     {
 	printf("showing Ticket");
-        showTicket();
+    showTicket();
     }
     else
+    {
         printf("Failed to show ticket\n");
+
+    }
     return r;
 }
 
@@ -99,8 +103,6 @@ bool TicketManager::openTicket()
 
 void TicketManager::readAllTicketData()
 {
-            printf("start of method\n");
-
     // tReader->readUniversity();
     // tReader->readSurname();
     // tReader->readStudyType();
@@ -129,7 +131,6 @@ void TicketManager::readAllTicketData()
 
     try 
     { 
-        printf("in try\n");
 
         sTicket->setUniversity(ticketData[0]);
         sTicket->setSurname(ticketData[1]);
@@ -150,7 +151,6 @@ void TicketManager::readAllTicketData()
         sTicket->setExperationDateMonth(stoi(ticketData[16]));
         sTicket->setExperationDateDay(stoi(ticketData[17]));
         sTicket->setEntranceYear(stoi(ticketData[18]));
-        printf("end of try\n");
 
     }
     catch(exception &err)
