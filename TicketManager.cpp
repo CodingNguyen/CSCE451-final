@@ -146,6 +146,7 @@ void TicketManager::readAllTicketData()
     }
     catch(exception &err)
     {
+        printf("does puts even work");
         puts("Read ticket data failure");
         exit(-1);
     }
