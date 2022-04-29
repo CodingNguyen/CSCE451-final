@@ -14,7 +14,6 @@ void TicketPrinter::SetupTicket(StudentTicket *ticket)
 }
 void TicketPrinter::printAll()
 {
-    printf("here \n");
     StudentTicket* t = getTicketField();
     printf("Universty %s \n", t->getUniversity().c_str());
     printf("Surname %s \n", t->getSurname().c_str());

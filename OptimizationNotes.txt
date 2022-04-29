@@ -38,9 +38,7 @@ Reader:
         - Convulated/dangerous way to convert a string from std in to an int
         - Getline for only reading an integer seems bloated, changed to reading an int from cin
 
-TicketReader:
-    * Reader doesn't seem to do anything doesn't already std lib functions do
-        - Removed Reader include and replace use of it's functions with std lib functions
+
 Main:
     * Input args are not properly accepted. This opens the program to many bugs.
         - Functions to read command line args can be replaced with single lines of code
@@ -64,11 +62,19 @@ TicketPrinter:
 StudentTicket:
     * Although the Student Ticket class is very wordy there is notthing really wrong with having getters and setters for a public class
         - Wrote script to automate the generation of getters and setters
+
+TicketReader:
+    * Reader is bloated and overly complex
+        - Removed 19 reader functions and replaced with a read all function
+    * Reader reads from file in an unsafe manner 
+        - Fixed bug where segfault occurs if file is empty or misformatted
+
 Reader:
     * Now that we are reading from a vector instead of from stdin this class is unnecicary
         - Fixed bloat by removing entirely 
 
-TicketReader:
-
-TODO ticketreader
-TODO actually remove reader files
+General:
+    * inconsistent spelling and capitalization
+    * use of obscure or outdated function calls
+    * mix of put() cout<< and printf 
+    
