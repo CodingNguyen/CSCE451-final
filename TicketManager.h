@@ -21,8 +21,6 @@ public:
 
     void fIdSetup(long ID);
     void fPartSetup(string s);
-    int getfId();
-    string getfPart();
     TicketPrinter* getPrinterField();
     TicketReader* getReaderField();
     StudentTicket* getTicketField();

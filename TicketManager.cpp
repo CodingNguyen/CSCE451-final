@@ -24,15 +24,6 @@ void TicketManager::fPartSetup(string s)
     this->parts = s;
 }
 
-int TicketManager::getfId() /*not sure about return yet*/
-{
-    return id;
-}
-
-string TicketManager::getfPart() /*not sure about return yet*/
-{
-    return parts;
-}
 
 TicketPrinter* TicketManager::getPrinterField() /*not sure about return yet*/
 {
