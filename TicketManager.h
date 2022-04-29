@@ -13,6 +13,7 @@ private:
     TicketPrinter *tPrinter; 
     string parts;
     int id;
+    vector<std::string> ticketData;
 
 public:
     TicketManager();
@@ -20,23 +21,14 @@ public:
 
     void fIdSetup(long ID);
     void fPartSetup(string s);
-    int getfId();
-    string getfPart();
     TicketPrinter* getPrinterField();
     TicketReader* getReaderField();
     StudentTicket* getTicketField();
-
-    bool getTicket();
-    bool getTicket(int unkwnParam);
-
-    bool openTicket();
-    bool openTicket(int unkwnParam);
     
-    void readAllTicketData();
-
+    bool getTicket();
     bool readTicket();
-    bool readTicket(int unkwnParam);
-
+    bool openTicket();
+    void readAllTicketData();
     void showTicket();
 };
 #endif

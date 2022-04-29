@@ -24,15 +24,6 @@ void TicketManager::fPartSetup(string s)
     this->parts = s;
 }
 
-int TicketManager::getfId() /*not sure about return yet*/
-{
-    return id;
-}
-
-string TicketManager::getfPart() /*not sure about return yet*/
-{
-    return parts;
-}
 
 TicketPrinter* TicketManager::getPrinterField() /*not sure about return yet*/
 {
@@ -49,20 +40,16 @@ bool TicketManager::getTicket()
     bool r = readTicket();
     if (r == true)
     {
-        showTicket();
+    showTicket();
+    }
+    else
+    {
+        printf("Failed to show ticket\n");
+
     }
     return r;
 }
 
-bool TicketManager::getTicket(int i) // with parameter?
-{
-    char r = readTicket(i);
-    if(r)
-    {
-        showTicket();
-    }
-    return r;
-}
 
 StudentTicket* TicketManager::getTicketField()
 {
@@ -71,59 +58,42 @@ StudentTicket* TicketManager::getTicketField()
 
 bool TicketManager::openTicket()
 {
-    FILE *fp;
+    //FILE *fp;
+    string buf = "./data" + parts + "_" + to_string(id);
+    vector<string> vecOfStr;
 
-    // memory leak?
-    int i;
-    // i = *(int*)(GS_OFFSET + 0x14)
-
-    char *buf = new char[100];
-    TicketManager tmArr[24]; // array of Ticket Managers? Not sure if error of decompilation
-    long id = getfId(); // why call getfId within own class
-    
-    // getfPart(); // called but not set to anything? Idk
-    // assumption...
-    const char *str = getfPart().c_str();
-    sprintf(buf, "./data%s_%lld", str, id);
-
-    // using a file pointer to read standard in for some reason
-    fp = freopen(buf, "r", stdin);
-    if(fp == (FILE*)0)
+    std::ifstream in(buf.c_str());
+    if(!in)
     {
-        puts("Ticket not found.");
+        cout << "Ticket not found.\n";
+        return false;
     }
 
-    // not sure what the other if statement is checking
-    // "if(i == *(int*)(in_GS_OFFSET + 0x14))"
-    return fp != (FILE*)0;
-}
-
-bool TicketManager::openTicket(int i) // with parameter?
-{
-    // another mem leak?
-    char *buf = new char[100];
-    FILE *fp;
-
-    sprintf(buf, "./data/%u", i);
+    //fp = fopen(buf.c_str(), "r");
+    //TODO add helper function to read from file. 
     
-    if(fp == (FILE*)0)
+    std::string str;
+    // Read the next line from File untill it reaches the end.
+    while (std::getline(in, str))
     {
-        puts("Ticket not found.");
+        // Line contains string of length > 0 then save it in vector
+        if(str.size() > 0)
+        {
+            vecOfStr.push_back(str);
+        }
     }
-    return fp != (FILE*)0;
-}
+    //Close The File
+    in.close();
 
+    // returns True is ticket was opened
+    this->ticketData = vecOfStr;
+    return true;
+}
 
 void TicketManager::readAllTicketData()
 {
-    // Todo need, ticketreader class
-    TicketReader *readPtr;
-
-    readPtr = getReaderField();
-    // TicketReader::readUniversity(readPtr);
-    readPtr->readUniversity();
-
-    // ... continute pattern ...
+    sTicket = tReader->readAll(ticketData);
+    tPrinter->SetupTicket(this->sTicket);
 }
 
 bool TicketManager::readTicket()
@@ -131,29 +101,19 @@ bool TicketManager::readTicket()
     bool o = openTicket();
     if (o == true)
     {
+        printf("Reading ticket data\n");
         readAllTicketData();
-    }
-    return o;
-}
 
-bool TicketManager::readTicket(int i) // with parameter?
-{
-    bool o = openTicket(i);
-    if (o == true)
-    {
-        readAllTicketData();
     }
+    else
+    {
+        printf("Failed to open ticket\n");
+    }
+
     return o;
 }
 
 void TicketManager::showTicket()
 {
-    // Todo need, ticketreader class
-    TicketPrinter *printPtr;
-
-    printPtr = getPrinterField();
-    // TicketPrinter::readUniversity(printPtr);
-    printPtr->printUniversity();
-
-    // ... continute pattern ...
+    this->tPrinter->printAll();
 }

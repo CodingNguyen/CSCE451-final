@@ -1,0 +1,80 @@
+TicketManager:
+    * TicketManager conains a lot of bloat and inneficient code. 
+        - Removed bloat by deleting array Array of TicketManagers which is never used
+        - Removed useless calls like getReaderField(), getPrinterField() and replaced with referencing the private variable
+        - Removed bloat where id was using a long long data type when an int is sufficient
+        - Removed unsued method getReaderField()
+        - Removed unsued method getPrinterField()
+
+    * TicketManager contains a duplicate overloaded version of methods which is never used. These methods are never used and serve no purpose since the ID value which is passed in was set by the user globally.
+        - Removed duplicate version of openTicket()
+        - Removed duplicate version of getTicket()
+        - removed duplicate version of showTicket()
+    
+    * In OpenTicket() reading from the file has many issues:
+        Sprintf() and a dynamic char array buffer is used to construct the filepath
+            - Fixed Buffer overflow vulnerability by using string concatenation instead of a dynamic buffer
+            - Fixed Memory leak where buffer was never closed
+            - Fixed bloat of having a large dynaically allocated array that is largely unnecicary
+
+        using freeopen() to open the file
+            - Fix memory leak as file is never closes
+            - extremely dangerous practice of Redirect file contents to stdin
+        
+        TicketManager uses freopen to pipe the contents of the file into stdin. This is very dangerous because stdin is not private or safe. Other programs could be listening to or writing from stdin
+            - Created helper function to read in data from open file safely
+            - Fixed privacy vulnerability where other programs could listen to stdin and learn all users data
+            - Fixed security vulnerability where other program could write to stdin changing the data arbitrarily
+            - Fixed bug where if user accidentally writes to stdin the program segfaults
+        
+    * TicketManager has functions which are unnecicarly nested
+        - TODO fix these, low priotiry
+
+Reader:
+    * Entire class seems to just be a wrapper for std library functions with some dangerous casts and bloated function calls
+        - Removed the entire class and replace uses of it with the corresponding std library functions
+    * readIntLine()
+        - Use of sscanf to simply read a user input integer doesn't make sense
+        - Convulated/dangerous way to convert a string from std in to an int
+        - Getline for only reading an integer seems bloated, changed to reading an int from cin
+
+
+Main:
+    * Input args are not properly accepted. This opens the program to many bugs.
+        - Functions to read command line args can be replaced with single lines of code
+        - Fixed bug where input with too few arguments could be accepted
+        - Fixed bug where extra arguments are permitted and the user is not warned
+        - Fixed bug where "usage" statement was not printed on bad usage
+        - Fixed bug where null value for Part was accepted
+        - Fixed bug where string value for id cause segfault
+        - Fixed bug where negative value for id caused segfault
+    
+    * Input args are read inefficiently
+        - Changed if else statement that only sets a bool to just a bool
+        - Removed bloat where id was using a long long data type when an int is sufficient
+        - Removed memory leak where TicketManager object was only deleted if the GetTicket() returned true
+
+TicketPrinter:
+    * TicketPrinter is extremely innificent with 20 seperate methods to print feilds
+        - removed 19 unnecicary functions by adding a print all function 
+        - Removed feilds that are completely unsued, Photo and BarCode
+
+StudentTicket:
+    * Although the Student Ticket class is very wordy there is notthing really wrong with having getters and setters for a public class
+        - Wrote script to automate the generation of getters and setters
+
+TicketReader:
+    * Reader is bloated and overly complex
+        - Removed 19 reader functions and replaced with a read all function
+    * Reader reads from file in an unsafe manner 
+        - Fixed bug where segfault occurs if file is empty or misformatted
+
+Reader:
+    * Now that we are reading from a vector instead of from stdin this class is unnecicary
+        - Fixed bloat by removing entirely 
+
+General:
+    * inconsistent spelling and capitalization
+    * use of obscure or outdated function calls
+    * mix of put() cout<< and printf 
+    
