@@ -73,6 +73,7 @@ bool TicketManager::openTicket()
     if(!in)
     {
         cout << "Ticket not found.\n";
+        return false;
     }
 
     //fp = fopen(buf.c_str(), "r");
@@ -155,6 +156,7 @@ bool TicketManager::readTicket()
     bool o = openTicket();
     if (o == true)
     {
+        printf("Reading ticket data\n");
         readAllTicketData();
     }
     else
