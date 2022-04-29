@@ -12,8 +12,8 @@ TicketReader::~TicketReader()
 
 StudentTicket* TicketReader::readAll(vector<string> ticketData)
 { 
-    StudentTicket sTicket = new StudentTicket();
-   if(ticketData.size() != 19)
+    StudentTicket* sTicket = new StudentTicket();
+    if(ticketData.size() != 19)
     {
         printf("ERROR: Expected ticket data with 19 fields, actual: %ld\n", ticketData.size());
         exit(-1);
