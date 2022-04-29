@@ -30,6 +30,17 @@ TicketManager:
     * TicketManager has functions which are unnecicarly nested
         - TODO fix these, low priotiry
 
+Reader:
+    * Entire class seems to just be a wrapper for std library functions with some dangerous casts and bloated function calls
+        - Removed the entire class and replace uses of it with the corresponding std library functions
+    * readIntLine()
+        - Use of sscanf to simply read a user input integer doesn't make sense
+        - Convulated/dangerous way to convert a string from std in to an int
+        - Getline for only reading an integer seems bloated, changed to reading an int from cin
+
+TicketReader:
+    * Reader doesn't seem to do anything doesn't already std lib functions do
+        - Removed Reader include and replace use of it's functions with std lib functions
 Main:
     * Input args are not properly accepted. This opens the program to many bugs.
         - Functions to read command line args can be replaced with single lines of code

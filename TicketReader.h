@@ -3,7 +3,6 @@
 
 #include "common.h"
 #include "StudentTicket.h"
-#include "Reader.h"
 
 class TicketReader
 {
