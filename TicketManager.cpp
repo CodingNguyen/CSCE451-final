@@ -49,6 +49,7 @@ bool TicketManager::getTicket()
     bool r = readTicket();
     if (r == true)
     {
+	printf("showing Ticket");
         showTicket();
     }
     else
@@ -164,5 +165,6 @@ bool TicketManager::readTicket()
 
 void TicketManager::showTicket()
 {
+    printf("inside");
     this->tPrinter->printAll();
 }
